@@ -1,0 +1,20 @@
+# Go build output
+*.exe
+*.dll
+*.so
+*.test
+*.out
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Build and binary folders
+bin/
+vendor/
+
+# IDE and system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
