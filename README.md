@@ -1,22 +1,24 @@
 # Go Learning Journey
 
-This repository documents my personal journey of learning the Go programming language.  
-It includes step-by-step practice exercises, small projects, and progress logs.
+A personal repository documenting my process of learning the Go programming language through small, progressive exercises and mini projects.
 
 ---
 
-## 📁 Repository Structure
-
-- **Basic/** — foundational Go concepts and syntax practices  
-- **Projects/** — small and practical projects built after learning the basics  
+## 📁 Structure
+- **Basic/** — fundamental Go concepts and syntax practices  
+- **Projects/** — practical mini projects after mastering the basics  
 
 ---
 
-## 🧭 Progress Log
+## 🧭 Progress
 
 ### Stage 1 — Getting Started
-- Installed and configured the Go environment  
-- Created the initial folder structure  
-- Wrote and executed the first Go program  
+- Installed and configured Go  
+- Initialized project and module  
+- Wrote and ran first Go program  
+- Created base documentation and `.gitignore`
 
----
+### Stage 2 — Variables & Time Formatting
+- Practiced variable declarations and user input  
+- Used `fmt.Printf` for formatted output  
+- Displayed current time using `time.Now().Format()`
