@@ -1,29 +1,40 @@
 # Go Learning Journey
 
-A personal repository documenting my process of learning the Go programming language through small, progressive exercises and mini projects.
+This repository documents my personal journey of learning the Go programming language —  
+from basic syntax and simple programs to more structured exercises and small projects.
 
 ---
 
-## 📁 Structure
-- **Basic/** — fundamental Go concepts and syntax practices  
-- **Projects/** — practical mini projects after mastering the basics  
-
----
-
-## 🧭 Progress
+## 🧩 Learning Stages
 
 ### Stage 1 — Getting Started
-- Installed and configured Go  
-- Initialized project and module  
-- Wrote and ran first Go program  
-- Created base documentation and `.gitignore`
+Learned how to set up the Go environment, initialize a project, and run a simple “Hello World” program.
 
 ### Stage 2 — Variables & Time Formatting
-- Practiced variable declarations and user input  
-- Used `fmt.Printf` for formatted output  
-- Displayed current time using `time.Now().Format()`
+Practiced declaring and using variables, reading user input, formatting strings, and displaying the current system time.
 
 ### Stage 3 — Conditions & Loops
-- Practiced using `for` loops with conditional logic  
-- Used `if` statements to control program flow  
-- Calculated the sum of positive numbers until a negative input was entered
+Implemented logic using `if` statements and `for` loops to process multiple user inputs and control program flow.
+
+### Stage 4 — Functions & Slices
+Combined loops, conditions, and reusable functions.  
+Used slices to dynamically store user inputs and calculate both average and maximum values.
+
+---
+
+## ⚙️ Tech Stack
+- **Language:** Go (Golang)  
+- **Environment:** Visual Studio Code  
+- **Version Control:** Git & GitHub  
+
+---
+
+## 📘 Project Structure
+go-learning/
+├── Basic/ # Core practice exercises
+│ ├── Practice1/ # Hello World
+│ ├── Practice2/ # Variables & Time
+│ ├── Practice3/ # Loops & Conditions
+│ └── Practice4/ # Functions & Slices
+└── Projects/ # Practical mini-projects (coming soon)
+
