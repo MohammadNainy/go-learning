@@ -22,3 +22,8 @@ A personal repository documenting my process of learning the Go programming lang
 - Practiced variable declarations and user input  
 - Used `fmt.Printf` for formatted output  
 - Displayed current time using `time.Now().Format()`
+
+### Stage 3 — Conditions & Loops
+- Practiced using `for` loops with conditional logic  
+- Used `if` statements to control program flow  
+- Calculated the sum of positive numbers until a negative input was entered

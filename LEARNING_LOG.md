@@ -11,3 +11,8 @@
 - Collected user input using `fmt.Scanln`  
 - Printed formatted output with `fmt.Printf`  
 - Displayed current time using `time.Now().Format()`
+
+## Stage 3 — Conditions & Loops (2025-10-07)
+- Practiced using `for` loops with `break`  
+- Implemented conditional checks using `if` statements  
+- Calculated cumulative sum of positive user inputs
