@@ -1,0 +1,4 @@
+Current Notes:
+- Hello, World!
+- Learning GO.
+- Practice 5

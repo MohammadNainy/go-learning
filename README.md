@@ -20,6 +20,10 @@ Implemented logic using `if` statements and `for` loops to process multiple user
 Combined loops, conditions, and reusable functions.  
 Used slices to dynamically store user inputs and calculate both average and maximum values.
 
+### Stage 5 — File Handling
+Learned how to create, open, and append data to text files using the `os` and `bufio` packages.  
+Built a simple Notes App that saves user input to a file and displays all saved notes at the end.
+
 ---
 
 ## ⚙️ Tech Stack
@@ -28,13 +32,3 @@ Used slices to dynamically store user inputs and calculate both average and maxi
 - **Version Control:** Git & GitHub  
 
 ---
-
-## 📘 Project Structure
-go-learning/
-├── Basic/ # Core practice exercises
-│ ├── Practice1/ # Hello World
-│ ├── Practice2/ # Variables & Time
-│ ├── Practice3/ # Loops & Conditions
-│ └── Practice4/ # Functions & Slices
-└── Projects/ # Practical mini-projects (coming soon)
-
