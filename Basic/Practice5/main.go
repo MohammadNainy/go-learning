@@ -1,99 +1,99 @@
 package main
 
 import (
-	"bufio" // برای خواندن ورودی از کاربر به صورت خط به خط
-	"fmt"   // برای عملیات ورودی/خروجی قالب‌بندی شده (مانند چاپ در کنسول)
-	"os"    // برای تعامل با سیستم عامل، به ویژه عملیات فایل
+	"bufio" // For reading user input line by line
+	"fmt"   // For formatted input/output operations (e.g., printing to console)
+	"os"    // For interacting with the operating system, especially file operations
 )
 
-// تابع اصلی که اجرای برنامه از آن شروع می‌شود.
+// Main function where the program execution starts.
 func main() {
-	// فراخوانی تابعی که مسئولیت ایجاد یا خواندن فایل را بر عهده دارد.
+	// Call the function responsible for creating or reading a file.
 	CreateOrReadFile()
 }
 
-// تابع اصلی برای مدیریت فایل: ایجاد، نوشتن و در نهایت خواندن فایل.
+// Main function for file management: creating, writing, and reading the file.
 func CreateOrReadFile() {
-	// تعریف نام ثابت برای فایلی که قرار است استفاده شود.
+	// Define a constant filename for the file to be used.
 	const filename = "notes.txt"
 
-	// 1. باز کردن/ایجاد فایل:
-	// os.OpenFile فایل را باز می‌کند. اگر وجود نداشته باشد، با پرچم os.O_CREATE آن را ایجاد می‌کند.
-	// os.O_APPEND باعث می‌شود که داده‌ها به انتهای فایل اضافه شوند.
-	// os.O_WRONLY فایل را برای عملیات نوشتن باز می‌کند.
-	// 0644 مجوزهای دسترسی به فایل (خواندن و نوشتن برای مالک، فقط خواندن برای گروه و دیگران).
+	// 1. Open/Create the file:
+	// os.OpenFile opens the file. If it doesn't exist, os.O_CREATE creates it.
+	// os.O_APPEND ensures data is appended to the end of the file.
+	// os.O_WRONLY opens the file for write-only operations.
+	// 0644 sets file permissions (read/write for owner, read-only for group and others).
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-	// بررسی خطا در زمان باز کردن/ایجاد فایل.
+	// Check for errors when opening/creating the file.
 	check(err)
-	// `defer` تضمین می‌کند که تابع f.Close() درست قبل از خروج تابع `CreateOrReadFile` اجرا می‌شود،
-	// و بدین ترتیب فایل بسته می‌شود تا منابع سیستم آزاد شوند.
+	// `defer` ensures f.Close() is called just before CreateOrReadFile exits,
+	// closing the file to free system resources.
 	defer f.Close()
 
-	// 2. نوشتن عنوان در صورت خالی بودن فایل:
-	// os.Stat اطلاعات آماری فایل (مانند اندازه) را برمی‌گرداند.
-	// اگر خطا nil باشد (فایل وجود دارد) و اندازه فایل 0 بایت باشد (فایل خالی است).
+	// 2. Write a header if the file is empty:
+	// os.Stat returns file information (e.g., size).
+	// If no error (file exists) and size is 0 bytes (file is empty).
 	if info, err := os.Stat(filename); err == nil && info.Size() == 0 {
-		// نوشتن خط عنوان "Current Notes:" در ابتدای فایل.
+		// Write the header "Current Notes:" at the start of the file.
 		_, err = f.WriteString("Current Notes:\n")
-		// بررسی خطا در زمان نوشتن در فایل.
+		// Check for errors when writing to the file.
 		check(err)
 	}
 
-	// 3. حلقه اصلی برای دریافت یادداشت‌های کاربر:
+	// 3. Main loop to collect user notes:
 	for {
-		// دریافت یادداشت جدید از کاربر.
+		// Get a new note from the user.
 		note := UserNote()
 
-		// اگر کاربر "0" وارد کند، حلقه را متوقف و خارج می‌شود.
+		// If the user enters "0", break the loop and exit.
 		if note == "0" {
 			break
 		}
-		// اگر کاربر خط خالی وارد کند، از این تکرار صرف نظر کرده و به شروع حلقه برمی‌گردد.
+		// If the user enters an empty line, skip this iteration and continue.
 		if note == "" {
 			continue
 		}
 
-		// نوشتن یادداشت در فایل با یک علامت "-" در ابتدا و یک خط جدید در انتها.
+		// Write the note to the file with a "-" prefix and a newline.
 		_, err = f.WriteString("- " + note + "\n")
-		// بررسی خطا در زمان نوشتن.
+		// Check for errors when writing.
 		check(err)
 
-		// اطلاع به کاربر که یادداشت ذخیره شده است.
+		// Notify the user that the note has been saved.
 		fmt.Println("Your note has been saved!")
-	} // پایان حلقه `for`
+	} // End of the `for` loop
 
-	// 4. خواندن و چاپ محتوای نهایی فایل:
-	// os.ReadFile کل محتوای فایل را می‌خواند و به صورت بایت برمی‌گرداند.
+	// 4. Read and print the final file content:
+	// os.ReadFile reads the entire file content as bytes.
 	data, err := os.ReadFile(filename)
-	// بررسی خطا در زمان خواندن فایل.
+	// Check for errors when reading the file.
 	check(err)
 
-	// چاپ محتوای فایل به کنسول با تبدیل بایت‌ها به رشته.
+	// Print the file content to the console by converting bytes to string.
 	fmt.Println("--- File Content ---")
 	fmt.Println(string(data))
 	fmt.Println("--------------------")
 }
 
-// تابع کمکی برای مدیریت خطاها.
+// Helper function to handle errors.
 func check(e error) {
-	// اگر خطا `nil` نباشد (یعنی خطایی رخ داده است).
+	// If the error is not `nil` (i.e., an error occurred).
 	if e != nil {
-		// برنامه را متوقف کرده و پیام خطا را نمایش می‌دهد.
+		// Stop the program and display the error message.
 		panic(e)
 	}
 }
 
-// تابعی برای دریافت ورودی یادداشت از کاربر.
+// Function to get note input from the user.
 func UserNote() string {
 	var note string
-	// نمایش پیام راهنما به کاربر.
+	// Display a prompt to the user.
 	fmt.Print("Enter your note(0 for EXIT): ")
-	// ایجاد یک اسکنر جدید برای خواندن ورودی استاندارد (کیبورد).
+	// Create a new scanner to read from standard input (keyboard).
 	scanner := bufio.NewScanner(os.Stdin)
-	// اسکنر خط بعدی را می‌خواند.
+	// Read the next line of input.
 	scanner.Scan()
-	// متن خوانده شده را در متغیر `note` ذخیره می‌کند.
+	// Store the read text in the `note` variable.
 	note = scanner.Text()
-	// یادداشت وارد شده را برمی‌گرداند.
+	// Return the entered note.
 	return note
 }

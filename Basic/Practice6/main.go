@@ -2,44 +2,44 @@ package main
 
 import "fmt"
 
-// تعریف ساختار student برای ذخیره اطلاعات یک دانش‌آموز
+// Student struct defines a structure to store student information
 type student struct {
-	Name  string  // نام دانش‌آموز
-	Age   int     // سن دانش‌آموز
-	Grade float64 // نمره دانش‌آموز
+	Name  string  // Student's name
+	Age   int     // Student's age
+	Grade float64 // Student's grade
 }
 
-// متد Display برای نمایش اطلاعات دانش‌آموز
+// Display method prints the student's information
 func (s student) Display() {
-	// چاپ اطلاعات دانش‌آموز با فرمت مشخص
+	// Print the student's details in a formatted manner
 	fmt.Printf("Student: %s | Age: %v | Grade: %.2f\n", s.Name, s.Age, s.Grade)
 }
 
-// متد IsAdult برای بررسی بزرگسال بودن دانش‌آموز
+// IsAdult method checks if the student is an adult
 func (s student) IsAdult() bool {
-	// اگر سن دانش‌آموز 18 یا بیشتر باشد، true برمی‌گرداند
+	// Returns true if the student's age is 18 or older
 	return s.Age >= 18
 }
 
-// متد UpdateGrade برای به‌روزرسانی نمره دانش‌آموز
-// استفاده از اشاره‌گر (*student) برای تغییر مقدار واقعی ساختار
+// UpdateGrade method updates the student's grade
+// Uses a pointer (*student) to modify the actual struct
 func (s *student) UpdateGrade(g float64) {
-	s.Grade = g // به‌روزرسانی نمره
+	s.Grade = g // Update the grade
 }
 
 func main() {
-	// ایجاد یک نمونه از ساختار student با نام Ali
+	// Create a student instance named Ali
 	Ali := student{"Ali", 20, 18.00}
 	
-	// فراخوانی متد Display برای نمایش اطلاعات اولیه Ali
+	// Call the Display method to show Ali's initial information
 	Ali.Display()
 	
-	// بررسی بزرگسال بودن Ali و چاپ نتیجه
+	// Check if Ali is an adult and print the result
 	fmt.Println(Ali.Name, " is an adult: ", Ali.IsAdult())
 	
-	// به‌روزرسانی نمره Ali به 12.5
+	// Update Ali's grade to 12.5
 	Ali.UpdateGrade(12.5)
 	
-	// نمایش اطلاعات به‌روزرسانی شده Ali
+	// Display Ali's updated information
 	Ali.Display()
 }
