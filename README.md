@@ -28,6 +28,12 @@ Built a simple Notes App that saves user input to a file and displays all saved 
 Learned how to define custom data types using `struct` and attach methods to them.  
 Built a simple Student Manager program that stores, displays, and updates student information using methods with both value and pointer receivers.
 
+### Stage 7 — Slices of Structs
+Managed a list of `Student` records using slices.  
+Implemented functions to add, find, and remove students,  
+as well as to calculate maximum and average grades.  
+Practiced struct iteration, conditional logic, and slice manipulation in Go.
+
 ---
 
 ## ⚙️ Tech Stack

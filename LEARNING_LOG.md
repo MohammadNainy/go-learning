@@ -61,3 +61,14 @@
 - Followed Go naming conventions for exported types and fields  
 
 ---
+
+## Stage 7 — Slices of Structs  (Practice7)
+- Created a slice of `Student` structs to represent a list of students  
+- Implemented `AddStudent` to dynamically add new items to the list  
+- Added `FindByName` and `RemoveByName` for basic search and delete operations  
+- Practiced slice manipulation using `append()` and index slicing  
+- Implemented `MaxGrade` and `AverageGrade` for data aggregation and analysis  
+- Added empty-list checks and improved function readability  
+- Strengthened understanding of slice iteration, data filtering, and Go conventions  
+
+---
