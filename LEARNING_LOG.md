@@ -48,3 +48,16 @@
 - Used `os.ReadFile()` to read and display all stored notes after writing  
 - Practiced safe error handling with a helper function `check(err)`  
 - Added detailed code comments to document program flow and structure
+
+---
+
+## Stage 6 — Structs & Methods  (Practice6)
+- Defined a custom data type `Student` using `struct` to represent complex data  
+- Implemented methods for displaying information and checking logical conditions  
+- Practiced using **value receivers** for read-only operations (`Display`, `IsAdult`)  
+- Used **pointer receivers** for modifying data (`UpdateGrade`)  
+- Learned to separate logic and output for cleaner, modular code  
+- Improved understanding of data encapsulation and method organization in Go  
+- Followed Go naming conventions for exported types and fields  
+
+---

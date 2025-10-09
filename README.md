@@ -24,6 +24,10 @@ Used slices to dynamically store user inputs and calculate both average and maxi
 Learned how to create, open, and append data to text files using the `os` and `bufio` packages.  
 Built a simple Notes App that saves user input to a file and displays all saved notes at the end.
 
+### Stage 6 — Structs & Methods
+Learned how to define custom data types using `struct` and attach methods to them.  
+Built a simple Student Manager program that stores, displays, and updates student information using methods with both value and pointer receivers.
+
 ---
 
 ## ⚙️ Tech Stack
