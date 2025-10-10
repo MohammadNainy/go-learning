@@ -72,3 +72,15 @@
 - Strengthened understanding of slice iteration, data filtering, and Go conventions  
 
 ---
+
+## Stage 8 — JSON Persistence  (Practice8)
+- Combined file handling and structs to create persistent data storage  
+- Used the `encoding/json` package to serialize and deserialize data  
+- Added JSON tags to `Student` fields for cleaner, lowercase keys  
+- Implemented `SaveStudents()` using `json.MarshalIndent()` for readable output  
+- Implemented `LoadStudents()` with proper error handling and empty-file checks  
+- Practiced returning `(value, error)` patterns instead of using `panic`  
+- Ensured data persists between executions by saving and reloading from `students.json`  
+- Improved program structure with a clear flow: **Load → Modify → Save**
+
+---

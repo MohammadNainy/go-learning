@@ -34,6 +34,12 @@ Implemented functions to add, find, and remove students,
 as well as to calculate maximum and average grades.  
 Practiced struct iteration, conditional logic, and slice manipulation in Go.
 
+### Stage 8 — JSON Persistence
+Implemented file-based data persistence using the `encoding/json` package.  
+Learned how to convert Go structs and slices into JSON and save them to disk using `json.MarshalIndent` and `os.WriteFile`.  
+Also practiced reading JSON data back into Go structs with `json.Unmarshal`, enabling data to persist between program runs.
+
+
 ---
 
 ## ⚙️ Tech Stack
