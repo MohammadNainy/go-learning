@@ -1,20 +1,14 @@
-	package main
+package main
 
-	import "fmt"
+import (
+	"github.com/MohammadNainy/go-learning/Projects/Project1/prices"	
+)
 
-	func main(){
-		prices := []float64{10,20,30}
-		taxRates := []float64{0,0.07,0.1,0.15}
+func main() {
+	taxRates := []float64{0, 0.07, 0.1, 0.15}
 
-		result := make(map[float64][]float64)
-
-		for _, taxRate := range taxRates{
-			taxIncludedPrices := make([]float64,len(prices))
-			for i , price := range prices{
-				taxIncludedPrices[i] = price * taxRate
-			}
-			result[taxRate] = taxIncludedPrices
-		}
-
-		fmt.Println(result)
+	for _, taxRate := range taxRates {
+		priceJob := prices.NewTaxIncludedPricesJob(taxRate)
+		priceJob.Process()
 	}
+}
