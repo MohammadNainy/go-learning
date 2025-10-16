@@ -84,3 +84,14 @@
 - Improved program structure with a clear flow: **Load → Modify → Save**
 
 ---
+
+## Project 1 — Price Processor (Tax-Included)
+- Designed a modular pipeline: read prices → apply tax → output results
+- Implemented an `IOManager` interface (`ReadLines`, `WriteResult`) and a console-backed manager (`cmdmanager`)
+- Created `TaxIncludedPricesJob` to encapsulate business logic (tax calculation and result mapping)
+- Wired multiple tax rates in `main.go` and executed the job per rate
+- Practiced clean package structure and separation of concerns
+- Prepared for future extension: file-based I/O (`filemanager`) and helpers (`conversion`) for parsing/JSON
+- Ran the program via `go run .` and tested with various price inputs (finish with `0`)
+
+---
