@@ -95,3 +95,14 @@
 - Ran the program via `go run .` and tested with various price inputs (finish with `0`)
 
 ---
+
+## Stage 9 — Concurrency (Practice9)
+- Learned how Go runs multiple functions concurrently using **goroutines** (`go func()` syntax)  
+- Created a `WaitGroup` to synchronize completion of all goroutines before closing shared channels  
+- Used **channels** for safe communication between concurrent tasks (producers) and the main consumer  
+- Implemented a watcher goroutine to `Wait()` for all workers and then `close()` the results channel  
+- Practiced blocking behavior of channel operations and understood how `for range` stops when the channel closes  
+- Simulated work with `time.Sleep` and random delays to visualize concurrency  
+- Gained a practical understanding of data flow between producers, the watcher, and the main goroutine
+
+---

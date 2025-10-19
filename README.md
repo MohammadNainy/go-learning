@@ -40,8 +40,11 @@ Learned how to convert Go structs and slices into JSON and save them to disk usi
 Also practiced reading JSON data back into Go structs with `json.Unmarshal`, enabling data to persist between program runs.
 
 ### Project 1 — Price Processor
-
 A modular Go program that reads price inputs, applies multiple tax rates, and outputs tax-included results through an I/O interface. The project demonstrates clean package organization, use of interfaces (`IOManager`) for flexible input/output handling, and a simple data-processing pipeline from reading user input to generating structured results.
+
+### Stage 9 — Concurrency
+Learned to run tasks concurrently using goroutines, coordinate with WaitGroup, and pass results via channels.
+
 
 ---
 
