@@ -3,17 +3,35 @@ package main
 import (
 	"net/http"
 
+	models "github.com/MohammadNainy/go-learning/Projects/Project2/event"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	server := gin.Default()
 
-	server.GET("/events",getHandler)
+	server.GET("/events", getHandler)
+	server.POST("/events", createEvent)
 
 	server.Run(":8080")
 }
 
 func getHandler(context *gin.Context) {
-	context.JSON(http.StatusOK, gin.H{"message":"Hello GO!","Status":200})
+	events := models.GetEvents()
+	context.JSON(http.StatusOK, events)
+}
+
+func createEvent(context *gin.Context) {
+	var event models.Event
+	err := context.ShouldBindJSON(&event)
+	if err!= nil{
+    	context.JSON(http.StatusBadRequest, gin.H{"message": "Could not parse request data.","error":err})
+    	return
+	}
+
+	event.ID = 1
+	event.UserID = 1
+
+	event.Save()
+	context.JSON(http.StatusCreated, gin.H{"message": "Event created!", "event": event})
 }
